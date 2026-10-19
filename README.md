@@ -47,6 +47,32 @@ python -m agent_forge.server --port 8000
 
 ---
 
+## 🌟 Demo 示例
+
+### 中文场景工具
+
+| Demo | 功能 | 状态 |
+|------|------|------|
+| **建筑规范查询** | 查询 GB 标准条款、条款编号、适用场景 | ⏳ 开发中 |
+| **A股信号分析** | 量价分析、技术指标计算、买卖信号生成 | ⏳ 开发中 |
+| **内容安全审核** | 敏感词检测、违禁词过滤、合规报告生成 | ⏳ 开发中 |
+
+### 快速开始
+
+```bash
+# 安装
+pip install -e ".[dev]"
+
+# 使用内置工具
+python -m agent_forge.tools.text classify "这是一条测试内容"
+python -m agent_forge.tools.data stats ./data.csv
+
+# 启动 MCP 服务器
+python -m agent_forge.server --port 8000
+```
+
+---
+
 ## 🛠️ 核心功能
 
 | 模块 | 功能 | 对标 |
@@ -56,6 +82,72 @@ python -m agent_forge.server --port 8000
 | **插件系统** | 热加载、沙箱隔离 | Docker MCP Toolkit |
 | **Context 优化** | 工具预筛 + 上下文压缩 | Anthropic Tool Search |
 | **收款集成** | 爱发电/微信商户无缝接入 | jianzhu-saas billing |
+
+---
+
+## 🇨🇳 中文场景 Demo
+
+> 以下示例展示了 agent-forge 在实际中文业务场景中的应用，每个 Demo 均基于 `ChineseTool` 基类开发。
+
+### Demo 1: 建筑规范查询（GB 标准）
+
+查询中国国家标准建筑规范条款，支持关键词搜索、标准号精确查询和分类筛选。
+
+```bash
+# 搜索防火规范
+python examples/demo_1_building_code.py search --keyword "防火"
+
+# 查看标准详情
+python examples/demo_1_building_code.py detail --code "GB50016"
+
+# 生成合规报告
+python examples/demo_1_building_code.py report --category "结构"
+```
+
+**内置规范库**: GB50016（防火）、GB50011（抗震）、GB50007（地基）、GB50009（荷载）等 8 部国标
+
+### Demo 2: A 股交易信号分析
+
+基于 MA/RSI/MACD 技术指标和量价关系，生成买入/卖出/持有信号。
+
+```bash
+# 分析交易信号
+python examples/demo_2_stock_signal.py analyze "10,10.5,11,10.8,11.2,11.5,12" --volumes "1000,1200,1500,900,1100,1300,1800" --symbol "600519"
+
+# 生成分析报告
+python examples/demo_2_stock_signal.py report "10,10.5,11,10.8,11.2,11.5,12" --symbol "600519"
+```
+
+**技术指标**: MA(5/10/20) · RSI(6/14) · MACD(DIF/DEA/柱) · 量价关系分析
+
+### Demo 3: 内容安全审核
+
+检测敏感词/违禁词，支持政治、色情、暴力、广告、辱骂等多级分类。
+
+```bash
+# 审核单条文本
+python examples/demo_3_content_audit.py check "这是一段正常文本"
+
+# 批量审核
+python examples/demo_3_content_audit.py batch "正常文本" "违规内容" "另一段正常文本"
+
+# 查看词库统计
+python examples/demo_3_content_audit.py stats
+```
+
+**检测能力**: 精确匹配 · 谐音/拼音变体 · 正则 URL 检测 · 动态词库管理
+
+### ChineseTool 基类
+
+所有中文 Demo 工具继承自 `ChineseTool`，提供：
+
+| 能力 | 说明 |
+|------|------|
+| 统一异常处理 | 中文错误消息 + 错误码 |
+| 自动注册 | 实例化即注册到全局 ToolRegistry |
+| 报告生成 | Markdown 中文报告模板 |
+| 参数校验 | 必填字段自动检查 |
+| 格式化输出 | 中文键名映射 + 结构化展示 |
 
 ---
 
