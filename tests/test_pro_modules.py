@@ -3,6 +3,7 @@
 
 import sys
 import os
+import tempfile
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from agent_forge.tools.marketplace import Marketplace, SkillMeta
@@ -12,46 +13,48 @@ from agent_forge.tools.rate_limiter import RateLimiter
 
 def test_marketplace_register():
     """测试市场注册"""
-    market = Marketplace()
-    
-    skill = SkillMeta(
-        skill_id="test.hello",
-        name="Hello World",
-        description="A test skill",
-        version="1.0.0",
-        author="Test Author",
-        tags=["test", "hello"],
-    )
-    
-    market.register(skill)
-    assert "test.hello" in market._skills
-    
-    listed = market.list()
-    assert listed["total"] == 1
-    assert listed["skills"][0]["name"] == "Hello World"
+    with tempfile.TemporaryDirectory() as tmpdir:
+        market = Marketplace(storage_path=tmpdir)
+        
+        skill = SkillMeta(
+            skill_id="test.hello",
+            name="Hello World",
+            description="A test skill",
+            version="1.0.0",
+            author="Test Author",
+            tags=["test", "hello"],
+        )
+        
+        market.register(skill)
+        assert "test.hello" in market._skills
+        
+        listed = market.list()
+        assert listed["total"] == 1
+        assert listed["skills"][0]["name"] == "Hello World"
 
 
 def test_marketplace_search():
     """测试市场搜索"""
-    market = Marketplace()
-    
-    market.register(SkillMeta(
-        skill_id="test.a",
-        name="AI Classifier",
-        description="AI 文本分类工具",
-        version="1.0.0",
-        author="Author",
-        tags=["ai", "classifier"],
-    ))
-    
-    # 搜索 "ai"（英文匹配 name）
-    results = market.search("ai")
-    assert len(results) > 0
-    assert results[0]["name"] == "AI Classifier"
-    
-    # 搜索 "分类"（中文匹配 description）
-    results_zh = market.search("分类")
-    assert len(results_zh) > 0
+    with tempfile.TemporaryDirectory() as tmpdir:
+        market = Marketplace(storage_path=tmpdir)
+        
+        market.register(SkillMeta(
+            skill_id="test.a",
+            name="AI Classifier",
+            description="AI 文本分类工具",
+            version="1.0.0",
+            author="Author",
+            tags=["ai", "classifier"],
+        ))
+        
+        # 搜索 "ai"（英文匹配 name）
+        results = market.search("ai")
+        assert len(results) > 0
+        assert results[0]["name"] == "AI Classifier"
+        
+        # 搜索 "分类"（中文匹配 description）
+        results_zh = market.search("分类")
+        assert len(results_zh) > 0
 
 
 def test_analytics_record():
@@ -131,19 +134,20 @@ def test_check_rate_limit():
 
 def test_marketplace_stats():
     """测试市场统计"""
-    market = Marketplace()
-    
-    market.register(SkillMeta(
-        skill_id="s1", name="A", description="d",
-        version="1.0", author="a", tags=["t"],
-    ))
-    market.register(SkillMeta(
-        skill_id="s2", name="B", description="d",
-        version="1.0", author="a", tags=["t"],
-    ))
-    
-    stats = market.stats()
-    assert stats["total_skills"] == 2
+    with tempfile.TemporaryDirectory() as tmpdir:
+        market = Marketplace(storage_path=tmpdir)
+        
+        market.register(SkillMeta(
+            skill_id="s1", name="A", description="d",
+            version="1.0", author="a", tags=["t"],
+        ))
+        market.register(SkillMeta(
+            skill_id="s2", name="B", description="d",
+            version="1.0", author="a", tags=["t"],
+        ))
+        
+        stats = market.stats()
+        assert stats["total_skills"] == 2
 
 
 def test_analytics_export():

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent-Forge - 中文 AI Agent 工具链标准</title>
+    <meta name="description" content="Agent-Forge 是面向 634K 工具生态的 MCP 框架，提供统一的工具注册、发现与调用能力">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { padding: 20px 0; border-bottom: 1px solid #21262d; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #58a6ff; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: #8b949e; text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: #58a6ff; }
+        
+        /* Hero */
+        .hero { padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 56px; margin-bottom: 20px; background: linear-gradient(135deg, #58a6ff, #a371f4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 20px; color: #8b949e; margin-bottom: 40px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: #238636; color: white; }
+        .btn-secondary { background: #21262d; color: #e6edf3; border: 1px solid #30363d; }
+        
+        /* Stats */
+        .stats { display: flex; justify-content: center; gap: 60px; padding: 60px 0; border-top: 1px solid #21262d; border-bottom: 1px solid #21262d; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 48px; font-weight: bold; color: #58a6ff; }
+        .stat-label { color: #8b949e; margin-top: 8px; }
+        
+        /* Features */
+        .features { padding: 80px 0; }
+        .features h2 { text-align: center; font-size: 36px; margin-bottom: 60px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card { background: #161b22; padding: 30px; border-radius: 12px; border: 1px solid #21262d; }
+        .feature-card h3 { color: #58a6ff; margin-bottom: 12px; }
+        .feature-card p { color: #8b949e; line-height: 1.6; }
+        
+        /* Code Example */
+        .code-section { padding: 80px 0; background: #161b22; }
+        .code-section h2 { text-align: center; font-size: 36px; margin-bottom: 40px; }
+        .code-block { background: #0d1117; padding: 24px; border-radius: 8px; overflow-x: auto; font-family: 'Monaco', monospace; border: 1px solid #21262d; }
+        .code-block pre { margin: 0; color: #e6edf3; }
+        
+        /* Pricing */
+        .pricing { padding: 80px 0; }
+        .pricing h2 { text-align: center; font-size: 36px; margin-bottom: 60px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+        .pricing-card { background: #161b22; padding: 40px; border-radius: 12px; border: 1px solid #21262d; text-align: center; }
+        .pricing-card.featured { border-color: #58a6ff; transform: scale(1.05); }
+        .pricing-card h3 { font-size: 24px; margin-bottom: 16px; }
+        .price { font-size: 48px; font-weight: bold; color: #58a6ff; margin-bottom: 24px; }
+        .price span { font-size: 16px; color: #8b949e; }
+        .features-list { list-style: none; text-align: left; margin-bottom: 30px; }
+        .features-list li { padding: 8px 0; color: #8b949e; }
+        .features-list li::before { content: "✓ "; color: #238636; }
+        
+        /* Footer */
+        footer { padding: 40px 0; border-top: 1px solid #21262d; text-align: center; color: #8b949e; }
+        footer a { color: #58a6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🔥 agent-forge</div>
+                <div class="nav-links">
+                    <a href="#features">功能</a>
+                    <a href="#demo">示例</a>
+                    <a href="#pricing">定价</a>
+                    <a href="https://github.com/Zeon7744/agent-forge" target="_blank">GitHub</a>
+                    <a href="https://gitee.com/Zeon7744/agent-forge" target="_blank">Gitee</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>中文 AI Agent 的工具链标准</h1>
+            <p>填补 634K 工具生态的中文框架空白<br>从开发到发布的 Skills 全生命周期管理</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Zeon7744/agent-forge" class="btn btn-primary" target="_blank">🚀 快速开始</a>
+                <a href="#demo" class="btn btn-secondary">📖 查看文档</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">634K</div>
+                    <div class="stat-label">工具生态</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">25K+</div>
+                    <div class="stat-label">GitHub Stars</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Token 优化</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">基础工具</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🔧 CLI 脚手架</h3>
+                    <p>分钟级启动：forge create / test / publish / serve，一站式 Skills 开发流程</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📦 工具注册表</h3>
+                    <p>动态注册、发现、调用，支持分页、搜索、评分、验证</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💰 收款集成</h3>
+                    <p>爱发电/微信商户无缝接入，按次计费 + 套餐订阅</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Context 优化</h3>
+                    <p>工具预筛 + 上下文压缩，减少 85% token 消耗</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🛡️ 安全沙箱</h3>
+                    <p>容器化隔离执行，企业级权限管理和审计日志</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌏 中文适配</h3>
+                    <p>中文文档、中文示例、中文合规，填补生态空白</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="code-section">
+        <div class="container">
+            <h2>快速开始</h2>
+            <div class="code-block">
+                <pre><code># 安装
+pip install agent-forge
+
+# 创建新 Skill
+forge create my-skill
+cd my-skill
+
+# 开发工具
+python -c "from agent_forge import ToolBase; ..."
+
+# 测试运行
+forge test
+
+# 发布到注册表
+forge publish
+
+# 启动 MCP 服务器
+forge serve --port 8000</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>定价方案</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>免费</h3>
+                    <div class="price">¥0<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>CLI 脚手架</li>
+                        <li>开发框架</li>
+                        <li>社区注册表</li>
+                        <li>基础工具集</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">立即开始</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">¥99<span>/月</span></div>
+                    <ul class="features-list">
+                        <li>高级注册表</li>
+                        <li>安全沙箱</li>
+                        <li>优先支持</li>
+                        <li>Context 优化</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">升级 Pro</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>企业</h3>
+                    <div class="price">定制</div>
+                    <ul class="features-list">
+                        <li>私有部署</li>
+                        <li>定制框架</li>
+                        <li>SLA 保障</li>
+                        <li>专属支持</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">联系销售</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>🔥 agent-forge — 中文 AI Agent 的工具链标准</p>
+            <p style="margin-top: 12px;">
+                <a href="https://github.com/Zeon7744/agent-forge">GitHub</a> · 
+                <a href="https://gitee.com/Zeon7744/agent-forge">Gitee</a> · 
+                <a href="https://afdian.net/@Zeon7744">爱发电</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 14px;">MIT License · © 2026 Zeon7744</p>
+        </div>
+    </footer>
+</body>
+</html>
