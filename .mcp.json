@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "agent-forge": {
+      "command": "python",
+      "args": ["-m", "agent_forge.server"],
+      "env": {
+        "JZ_SAAS_BILLING_GATEWAY": "afdian",
+        "JZ_SAAS_AFDIAN_USER": "0c59dda8a1bb11f19b9552540025c377",
+        "JZ_SAAS_AFDIAN_TOKEN": "mvBuAfHU3JnVbX8wq45KTWMRh6rgtkcP",
+        "JZ_SAAS_AFDIAN_RETURN": "https://afdian.net/payment/success"
+      },
+      "url": "http://localhost:8000/mcp"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+# Agent-Forge 核心依赖
+# 版本约束基于 MCP 2026-07-28 协议兼容性
+
+# 核心依赖
+typer>=0.9.0              # CLI 框架，用于命令行入口
+rich>=13.0.0              # 终端富文本显示
+pyyaml>=6.0               # 配置文件解析（.mcp.json）
+jsonschema>=4.17.0        # 工具输入 Schema 验证
+
+# 可选依赖（按需安装）
+# openai>=1.0.0           # AI 能力集成
+# anthropic>=0.18.0       # Claude API 接入
+
+# 开发依赖
+# pytest>=7.0             # 测试框架
+# pytest-cov>=4.0         # 覆盖率报告
+# black>=23.0             # 代码格式化
+# ruff>=0.1.0             # 代码检查
