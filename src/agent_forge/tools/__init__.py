@@ -8,6 +8,8 @@ from .chinese_base import ChineseTool, ChineseToolError, ValidationError, DataNo
 from .marketplace import Marketplace, SkillMeta
 from .analytics import AnalyticsEngine, ToolAnalytics
 from .rate_limiter import RateLimiter, RateLimitConfig, QuotaInfo
+from .digital_worker import DigitalWorkerTool, DigitalEmployee, EmployeeRole
+from .compliance import ComplianceTool, ComplianceIssue, RiskLevel, Platform
 
 __all__ = [
     "ToolBase",
@@ -22,4 +24,11 @@ __all__ = [
     "RateLimiter",
     "RateLimitConfig",
     "QuotaInfo",
+    "DigitalWorkerTool",
+    "DigitalEmployee",
+    "EmployeeRole",
+    "ComplianceTool",
+    "ComplianceIssue",
+    "RiskLevel",
+    "Platform",
 ]
