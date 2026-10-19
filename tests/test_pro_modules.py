@@ -44,9 +44,14 @@ def test_marketplace_search():
         tags=["ai", "classifier"],
     ))
     
-    results = market.search("AI 分类")
+    # 搜索 "ai"（英文匹配 name）
+    results = market.search("ai")
     assert len(results) > 0
     assert results[0]["name"] == "AI Classifier"
+    
+    # 搜索 "分类"（中文匹配 description）
+    results_zh = market.search("分类")
+    assert len(results_zh) > 0
 
 
 def test_analytics_record():
