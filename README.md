@@ -2,6 +2,8 @@
 
 > **中文 AI Agent 的工具链标准** — 填补 634K 工具生态的中文框架空白
 
+mcp-name: io.github.Zeon7744/agent-forge
+
 [![GitHub Stars](https://img.shields.io/github/stars/Zeon7744/agent-forge?style=social)](https://github.com/Zeon7744/agent-forge)
 [![GitHub Forks](https://img.shields.io/github/forks/Zeon7744/agent-forge?style=social)](https://github.com/Zeon7744/agent-forge/forks)
 [![GitHub License](https://img.shields.io/github/license/Zeon7744/agent-forge)](https://github.com/Zeon7744/agent-forge/blob/main/LICENSE)
