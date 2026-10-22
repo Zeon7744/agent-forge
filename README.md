@@ -1,5 +1,11 @@
 # Agent-Forge
 
+## 💰 价值主张 & 定价
+> **能卖什么**：中文 AI Agent 工具链标准 — 5 分钟开发一个中文 MCP 工具，20+ 内置中文 NLP 工具 + Registry 一键发布。
+>
+> **定价**：免费（基础 5 个 MCP Server）/ **Pro ¥99/月**（全部工具 + 发布 + 高级 NLP）/ **企业 ¥999/月**（私有部署 + SLA 99.9%）。付费渠道：[爱发电 @Zeon7744](https://afdian.net/@Zeon7744)
+
+
 > **中文 AI Agent 的工具链标准** — 填补 634K 工具生态的中文框架空白
 
 mcp-name: io.github.Zeon7744/agent-forge
