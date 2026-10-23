@@ -10,6 +10,12 @@ from urllib.parse import urlparse
 from typing import Any, Dict
 
 from .registry import registry
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+try:
+    import billing
+except ImportError:
+    billing = None
 
 # MCP 协议常量
 MCP_PROTOCOL_VERSION = "2026-07-28"
